@@ -1,4 +1,9 @@
 <template name="meetingQuestions">
   {{>meetingItem}}
-  questions will come here
+  {{>questionForm}}
+  <ul class="questions">
+    {{#each questions}}
+      {{>questionItem}}
+    {{/each}}
+  </ul>
 </template>

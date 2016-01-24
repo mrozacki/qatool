@@ -43,10 +43,9 @@ if (Meetings.find().count() === 0) {
     endTime: new Date(now + 3 * 3600 * 1000 + 1800 * 1000),
     meetingCode: "IcDLj"
   });
-}
+
 
 //add questions
-if (Questions.find().count() === 0) {
   Questions.insert({
     text: 'To co dalej robimy?',
     meetingId: Meetings.findOne({name:'Narada u Zenka'})._id

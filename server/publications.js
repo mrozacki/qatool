@@ -4,6 +4,11 @@ Meteor.publish("meetings", function(userId){
 });
 
 Meteor.publish("questions", function(meetingId){
-  check(meetingId, String);
+  check(meetingId, Match.Any);
   return Questions.find({meetingId: meetingId});
+});
+
+Meteor.publish("meeting", function(meetingId){
+  check(meetingId, String);
+  return Meetings.find({_id: meetingId});
 });

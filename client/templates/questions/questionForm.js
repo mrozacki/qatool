@@ -3,7 +3,7 @@ Template.questionForm.events({
      event.preventDefault();
 
      var question = {
-       meeting_id: this._id,
+       meetingId: this._id,
        text: $(event.target).find("[name=question]").val()
      };
 

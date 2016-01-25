@@ -6,8 +6,11 @@ Template.questionForm.events({
        meetingId: this._id,
        text: $(event.target).find("[name=question]").val()
      };
-
-     Questions.insert(question);
-     $(event.target)[0].reset();
+     Meteor.call('questionInsert', question, function(error, result) {
+       // display the error to the user and abort
+       if (error)
+         return alert(error.reason);
+       $(event.target)[0].reset();
+     });
   }
 });

@@ -1,18 +1,22 @@
 Template.newMeeting.events({
   "submit form": function(event){
-     event.preventDefault();
+    event.preventDefault();
 
-     var meeting = {
-       name: $(event.target).find("[name=name]").val(),
-       ownerId: Meteor.userId(),
-       startTime: $(event.target).find("[name=startTime]").val(),
-       endTime: $(event.target).find("[name=endTime]").val(),
-       meetingCode: $(event.target).find("[name=meetingCode]").val()
-     };
+    var meeting = {
+      name: $(event.target).find("[name=name]").val(),
+      startTime: new Date($(event.target).find("[name=startTime]").val()),
+      endTime: new Date($(event.target).find("[name=endTime]").val()),
+      meetingCode: $(event.target).find("[name=meetingCode]").val()
+    };
 
-     var result=Meetings.insert(meeting);
 
-     Router.go('meetingQuestions', {_id: result});
+    Meteor.call('meetingInsert', meeting, function(error, result) {
+      // display the error to the user and abort
+      if (error)
+        return alert(error.reason);
+      Router.go('meetingQuestions', {_id: result._id});
+    });
+
   }
 });
 

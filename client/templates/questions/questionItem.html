@@ -1,5 +1,10 @@
 <template name='questionItem'>
   <li>
     <p>{{text}}</p>
+    <p>{{votes}} Votes</p>
+    {{#if notVoted}}
+      <button type="button" name="vote" class="btn btn-default btn-vote">Vote</button>
+    {{/if}}
+      <button type="button" name="answered" class="btn btn-default btn-answered">Answered</button>
   </li>
 </template>

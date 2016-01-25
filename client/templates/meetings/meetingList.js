@@ -1,5 +1,5 @@
 Template.meetingList.helpers({
   meetings: function(){
-    return Meetings.find();
+    return Meetings.find({},  {sort:{submitted:-1}, reactive:true});
   }
 });

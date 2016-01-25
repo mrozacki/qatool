@@ -25,7 +25,9 @@ if (Meetings.find().count() === 0) {
     ownerId: tomId,
     startTime: new Date(now + 7 * 3600 * 1000),
     endTime: new Date(now + 7 * 3600 * 1000 + 3600 * 1000),
-    meetingCode: "NRDznk"
+    meetingCode: "NRDznk",
+    submitted: now,
+    questionsCount: 3
   });
 
   Meetings.insert({
@@ -33,7 +35,9 @@ if (Meetings.find().count() === 0) {
     ownerId: tomId,
     startTime: new Date(now + 9 * 3600 * 1000),
     endTime: new Date(now + 9 * 3600 * 1000 + 3600 * 1000),
-    meetingCode: "WlkZM"
+    meetingCode: "WlkZM",
+    submitted: now,
+    questionsCount: 0
   });
 
   Meetings.insert({
@@ -41,23 +45,34 @@ if (Meetings.find().count() === 0) {
     ownerId: sachaId,
     startTime: new Date(now + 3 * 3600 * 1000),
     endTime: new Date(now + 3 * 3600 * 1000 + 1800 * 1000),
-    meetingCode: "IcDLj"
+    meetingCode: "IcDLj",
+    submitted: now,
+    questionsCount: 0
   });
 
 
 //add questions
   Questions.insert({
     text: 'To co dalej robimy?',
-    meetingId: Meetings.findOne({name:'Narada u Zenka'})._id
+    meetingId: Meetings.findOne({name:'Narada u Zenka'})._id,
+    votes: 0,
+    answered: false,
+    created: now
   });
 
   Questions.insert({
     text: 'Jak zyc??',
-    meetingId: Meetings.findOne({name:'Narada u Zenka'})._id
+    meetingId: Meetings.findOne({name:'Narada u Zenka'})._id,
+    votes: 0,
+    answered: false,
+    created: now
   });
 
   Questions.insert({
     text: 'Ile to bedzie kosztowalo?',
-    meetingId: Meetings.findOne({name:'Narada u Zenka'})._id
+    meetingId: Meetings.findOne({name:'Narada u Zenka'})._id,
+    votes: 0,
+    answered: false,
+    created: now
   });
 }

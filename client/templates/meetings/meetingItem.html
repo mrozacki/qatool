@@ -2,6 +2,10 @@
   <div class="meeting">
     <div class="meeting-content">
       <h3><a href="{{pathFor 'meetingQuestions'}}">{{name}}</a></h3>
+      <p> <b>Code:</b> {{meetingCode}} </p>
+      <p> <b>Start Time:</b> {{formatDate startTime}} </p>
+      <p> <b>End Time:</b> {{formatDate endTime}} </p>
+      <p> <b>Questions:</b> {{questionsCount}} </p>
     </div>
   </div>
 </template>

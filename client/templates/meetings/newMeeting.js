@@ -13,7 +13,7 @@ Template.newMeeting.events({
     Meteor.call('meetingInsert', meeting, function(error, result) {
       // display the error to the user and abort
       if (error)
-        return alert(error.reason);
+       return  throwError('This link has already been posted');
       Router.go('meetingQuestions', {_id: result._id});
     });
 

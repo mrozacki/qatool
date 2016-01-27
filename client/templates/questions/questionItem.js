@@ -21,7 +21,11 @@ Template.questionItem.events({
   "click .btn-vote": function(event){
     event.preventDefault();
     var votedIds = Session.get("votedQuestions");
-    Questions.update({_id:this._id}, {$inc:{votes: 1}});
+    Meteor.call('vote', this._id, function(error, result) {
+      // display the error to the user and abort
+      if (error)
+       return  throwError(error.reason);
+    });
     votedIds.push(this._id);
     return Session.set("votedQuestions", votedIds);
   },

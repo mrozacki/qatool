@@ -18,7 +18,7 @@ Meteor.methods({
     check(meetingCode, String);
     var meeting = Meetings.findOne({meetingCode: meetingCode});
     if(!meeting)
-    throw new Meteor.Error('invalid-meeting', "Check your meeting code");
+      throw new Meteor.Error('invalid-meeting', "Check your meeting code");
     var meetingId=meeting._id;
     var result = {_id: meetingId};
     return result;

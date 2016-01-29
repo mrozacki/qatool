@@ -5,6 +5,9 @@
     {{#if notVoted}}
       <button type="button" name="vote" class="btn btn-default btn-vote">Vote</button>
     {{/if}}
+
+    {{#if owner}}
       <button type="button" name="answered" class="btn btn-default btn-answered">Answered</button>
+    {{/if}}
   </li>
 </template>

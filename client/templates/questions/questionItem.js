@@ -14,6 +14,13 @@ Template.questionItem.helpers({
       }
       return true;
     }
+  },
+  owner: function(){
+    if(Meteor.userId()===Meetings.findOne({_id: this.meetingId}).ownerId)
+      return true;
+    else {
+      return false;
+    }
   }
 });
 

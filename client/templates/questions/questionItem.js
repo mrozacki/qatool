@@ -32,6 +32,10 @@ Template.questionItem.events({
 
   "click .btn-answered": function(event){
     event.preventDefault();
-    return Questions.update({_id:this._id},{$set: {answered:true }});
+    Meteor.call('answer', this._id, function(error, result) {
+      // display the error to the user and abort
+      if (error)
+       return  throwError(error.reason);
+    });
   }
 });

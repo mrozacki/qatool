@@ -11,7 +11,7 @@
     <div class="form-group {{errorClass 'meetingCode'}}">
       <label for="meetingCode" class="control-label">6-char Meeting Code</label>
       <div class="controls">
-        <input type="text" id='meetingCode' name="meetingCode" value="" placeholder="Meeting code" class="form-control"/>
+        <input type="text" id='meetingCode' name="meetingCode" value="{{meetingCodeDefault}}" placeholder="Meeting code" class="form-control"/>
         <span class="help-block">{{errorMessage 'meetingCode'}}</span>
       </div>
     </div>
@@ -19,7 +19,7 @@
     <div class="form-group {{errorClass 'startTime'}}">
       <label for="startTime" class="control-label">Start Time</label>
       <div class="controls">
-        <input type="datetime-local" id='startTime' name="startTime" class="form-control" value="{{now}}"/>
+        <input type="datetime-local" id='startTime' name="startTime" class="form-control" value="{{now 1}}"/>
         <span class="help-block">{{errorMessage 'startTime'}} </span>
       </div>
     </div>
@@ -27,7 +27,7 @@
     <div class="form-group {{errorClass 'endTime'}}">
       <label for="endTime" class="control-label">End Time</label>
       <div class="controls">
-        <input type="datetime-local" id='endTime' name="endTime" class="form-control" value="{{now}}"/>
+        <input type="datetime-local" id='endTime' name="endTime" class="form-control" value="{{now 2}}"/>
         <span class="help-block">{{errorMessage 'endTime'}}</span>
       </div>
     </div>

@@ -25,7 +25,7 @@ if (Meetings.find().count() === 0) {
     ownerId: tomId,
     startTime: new Date(now + 7 * 3600 * 1000),
     endTime: new Date(now + 7 * 3600 * 1000 + 3600 * 1000),
-    meetingCode: "NRDznk",
+    meetingCode: "NRDznk".toLowerCase(),
     submitted: now,
     questionsCount: 3
   });
@@ -35,7 +35,7 @@ if (Meetings.find().count() === 0) {
     ownerId: tomId,
     startTime: new Date(now + 9 * 3600 * 1000),
     endTime: new Date(now + 9 * 3600 * 1000 + 3600 * 1000),
-    meetingCode: "WlkZM",
+    meetingCode: "WlkZM".toLowerCase(),
     submitted: now,
     questionsCount: 0
   });
@@ -45,7 +45,7 @@ if (Meetings.find().count() === 0) {
     ownerId: sachaId,
     startTime: new Date(now + 3 * 3600 * 1000),
     endTime: new Date(now + 3 * 3600 * 1000 + 1800 * 1000),
-    meetingCode: "IcDLj",
+    meetingCode: "IcDLj".toLowerCase(),
     submitted: now,
     questionsCount: 0
   });

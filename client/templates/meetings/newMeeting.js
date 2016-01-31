@@ -10,7 +10,7 @@ Template.newMeeting.events({
       name: $(event.target).find("[name=name]").val(),
       startTime: new Date($(event.target).find("[name=startTime]").val()),
       endTime: new Date($(event.target).find("[name=endTime]").val()),
-      meetingCode: $(event.target).find("[name=meetingCode]").val()
+      meetingCode: $(event.target).find("[name=meetingCode]").val().toLowerCase()
     };
 
     var errors = validateMeeting(meeting);
@@ -34,10 +34,10 @@ Template.newMeeting.events({
 });
 
 Template.newMeeting.helpers({
-  now: function(){
+  now: function(shift){
     var defaultTime = moment(new Date());
     defaultTime.startOf('hour');
-    defaultTime.add(1,'h');
+    defaultTime.add(shift,'h');
     return defaultTime.format('YYYY-MM-DDTHH:mm');
   },
   errorMessage: function(field) {
@@ -45,5 +45,8 @@ Template.newMeeting.helpers({
   },
   errorClass: function(field){
     return !!Session.get('newMeetingErrors')[field] ? 'has-error' : '';
+  },
+  meetingCodeDefault: function(){
+    return Random.id(6).toLowerCase();
   }
 });

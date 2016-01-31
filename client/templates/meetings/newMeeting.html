@@ -19,15 +19,15 @@
     <div class="form-group {{errorClass 'startTime'}}">
       <label for="startTime" class="control-label">Start Time</label>
       <div class="controls">
-        <input type="datetime-local" id='startTime' name="startTime" class="form-control"/>
-        <span class="help-block">{{errorMessage 'startTime'}}</span>
+        <input type="datetime-local" id='startTime' name="startTime" class="form-control" value="{{now}}"/>
+        <span class="help-block">{{errorMessage 'startTime'}} </span>
       </div>
     </div>
 
     <div class="form-group {{errorClass 'endTime'}}">
       <label for="endTime" class="control-label">End Time</label>
       <div class="controls">
-        <input type="datetime-local" id='endTime' name="endTime" class="form-control"/>
+        <input type="datetime-local" id='endTime' name="endTime" class="form-control" value="{{now}}"/>
         <span class="help-block">{{errorMessage 'endTime'}}</span>
       </div>
     </div>

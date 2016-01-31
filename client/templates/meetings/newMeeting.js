@@ -25,15 +25,20 @@ Template.newMeeting.events({
        return  throwError(error.reason);
       Router.go('meetingQuestions', {_id: result._id});
     });
-
-  }
+  },
+    "input #startTime": function(event) {
+      var endTime = moment($(event.target).val());
+      endTime.add(1,'h');
+      $('#endTime').val(endTime.format('YYYY-MM-DDTHH:mm'));
+    }
 });
 
 Template.newMeeting.helpers({
   now: function(){
-    now = new Date().getTime();
-    console.log(toString(now));
-    return toString(now);
+    var defaultTime = moment(new Date());
+    defaultTime.startOf('hour');
+    defaultTime.add(1,'h');
+    return defaultTime.format('YYYY-MM-DDTHH:mm');
   },
   errorMessage: function(field) {
     return Session.get('newMeetingErrors')[field];

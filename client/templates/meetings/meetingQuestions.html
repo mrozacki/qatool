@@ -2,8 +2,14 @@
   {{>meetingItem}}
   {{>questionForm}}
   <ul class="questions">
-    {{#each questions}}
+    {{#each unansweredQuestions}}
       {{>questionItem}}
     {{/each}}
+    {{#if displayAnswered}}
+    <h1>Answered questions:</h1>
+    {{#each answeredQuestions}}
+      {{>questionItem}}
+    {{/each}}
+    {{/if}}
   </ul>
 </template>

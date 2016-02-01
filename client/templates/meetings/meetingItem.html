@@ -6,6 +6,10 @@
       <p> <b>Start Time:</b> {{formatDate startTime}} </p>
       <p> <b>End Time:</b> {{formatDate endTime}} </p>
       <p> <b>Questions:</b> {{questionsCount}} </p>
+      {{#if owner}}
+        <a href="{{pathFor 'updateMeeting'}}">Edit</a>
+        <button type="button" name="cancelMeeting" class="btn btn-danger" id="cancelMeeting">Remove</button>
+      {{/if}}
     </div>
   </div>
 </template>

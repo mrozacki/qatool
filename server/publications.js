@@ -16,7 +16,8 @@ Meteor.publish("meeting", function(meetingId){
 Meteor.methods({
   getMeetingId: function(meetingCode){
     check(meetingCode, String);
-    var meeting = Meetings.findOne({meetingCode: meetingCode});
+    
+    var meeting = Meetings.findOne({meetingCode: meetingCode.toLowerCase()});
     if(!meeting)
       throw new Meteor.Error('invalid-meeting', "Check your meeting code");
     var meetingId=meeting._id;

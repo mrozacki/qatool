@@ -1,6 +1,5 @@
-Meteor.publish("meetings", function(userId){
-  check(userId, Match.OneOf(String, null));
-  return Meetings.find({ownerId: userId}, {sort: {start_time: -1} });
+Meteor.publish("meetings", function(){
+  return Meetings.find({ownerId: this.userId}, {sort: {start_time: -1} });
 });
 
 Meteor.publish("questions", function(meetingId){
@@ -16,7 +15,7 @@ Meteor.publish("meeting", function(meetingId){
 Meteor.methods({
   getMeetingId: function(meetingCode){
     check(meetingCode, String);
-    
+
     var meeting = Meetings.findOne({meetingCode: meetingCode.toLowerCase()});
     if(!meeting)
       throw new Meteor.Error('invalid-meeting', "Check your meeting code");

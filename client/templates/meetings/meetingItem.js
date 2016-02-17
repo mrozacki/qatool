@@ -1,8 +1,17 @@
 Template.meetingItem.helpers({
   owner: function(){
     return Meteor.userId() && Meteor.userId()===this.ownerId;
+  },
+  
+  extendedView: function() {
+    // if(Iron.Location.get().path=='/mymeetings') { return true; }
+    
+    if(Router.current().route.getName()=='meetingList') { return true; }
+    else { return false; } 
   }
 });
+
+
 
 Template.meetingItem.events({
   "click #cancelMeeting": function(event){

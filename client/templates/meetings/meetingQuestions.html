@@ -1,15 +1,23 @@
 <template name="meetingQuestions">
   {{>meetingItem}}
   {{>questionForm}}
-  <ul class="questions">
-    {{#each unansweredQuestions}}
-      {{>questionItem}}
-    {{/each}}
-    {{#if displayAnswered}}
+  <div class='wrapper'>
+    <ul class="questions">
+      {{#each unansweredQuestions}}
+        {{>questionItem}}
+      {{/each}}
+    </ul>
+  </div>
+
+  {{#if displayAnswered}}
     <h1>Answered questions:</h1>
-    {{#each answeredQuestions}}
-      {{>questionItem}}
-    {{/each}}
-    {{/if}}
-  </ul>
+    <div class='wrapper'>
+      <ul>
+        {{#each answeredQuestions}}
+          {{>questionItem}}
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+
 </template>

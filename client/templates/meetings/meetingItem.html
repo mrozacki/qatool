@@ -1,18 +1,31 @@
 <template name="meetingItem">
   <div class="meeting">
     <div class="meeting-content">
-      <h3><a href="{{pathFor 'meetingQuestions'}}">{{name}}</a></h3>
-      <p> <b>Code:</b> {{meetingCode}} </p>
+      
 
-      {{#if extendedView }}
+
+      {{#if extendedView }}   <!--used in the list of meetings, full extended version -->
+        <h3><b>Meeting name: </b><a href="{{pathFor 'meetingQuestions'}}">{{name}}</a></h3>
+        <p> <b>Code:</b> {{meetingCode}} </p>
         <p> <b>Start Time:</b> {{formatDate startTime}} </p>
         <p> <b>End Time:</b> {{formatDate endTime}} </p>
+      
+      {{else}}  <!--simplified version used in the one meeting view-->
+        <h3><b>Meeting name: </b>{{name}}</h3>
+        <p class="lead bg-warning"> <b>To join this meeting please use the following code: {{meetingCode}} </b></p>
       {{/if}}
 
       <p> <b>Questions:</b> {{questionsCount}} </p>
       
       {{#if owner}}
-        <a href="{{pathFor 'updateMeeting'}}">Edit</a>
+
+        {{#unless extendedView}}
+          <a class="btn btn-info" href="{{pathFor 'meetingList'}}" role="button">Go Back</a>
+        {{/unless}}
+
+        <a class="btn btn-warning" href="{{pathFor 'updateMeeting'}}" role="button">Edit</a>
+        <!--<a href="{{pathFor 'updateMeeting'}}">Edit</a>-->
+        
         <button type="button" name="cancelMeeting" class="btn btn-danger" id="cancelMeeting">Remove</button>
       {{/if}}
 

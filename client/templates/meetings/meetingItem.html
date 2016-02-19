@@ -22,6 +22,10 @@
         {{#unless extendedView}}
           <a class="btn btn-info" href="{{pathFor 'meetingList'}}" role="button">Go Back</a>
         {{/unless}}
+        
+        {{#if extendedView }}
+          <a class = "btn btn-primary" href="{{pathFor 'meetingQuestions'}}">Open meeting</a>
+        {{/if}}
 
         <a class="btn btn-warning" href="{{pathFor 'updateMeeting'}}" role="button">Edit</a>
         <!--<a href="{{pathFor 'updateMeeting'}}">Edit</a>-->

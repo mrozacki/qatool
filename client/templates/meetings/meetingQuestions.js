@@ -42,9 +42,10 @@ Template.meetingQuestions.helpers({
 });
 
 Template.meetingQuestions.onRendered(function() {
-  this.find('.wrapper')._uihooks = {
+    this.find('#unanswered')._uihooks = {
     insertElement: function(node, next) {
       $(node)
+        .removeClass('animate')
         .hide()
         .insertBefore(next)
         .fadeIn();
@@ -85,9 +86,11 @@ Template.meetingQuestions.onRendered(function() {
       $inBetween.addClass('animate').css('top', 0);
     },
     removeElement: function(node) {
-      $(node).fadeOut(function() {
-        $(this).remove();
-      });
+      $(node)
+        .removeClass('animate')
+        .fadeOut(function() {
+          $(this).remove();
+        });
     }
   };
 });

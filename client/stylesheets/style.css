@@ -1,4 +1,4 @@
-.grid-block, .main, .meeting, .questions li, .question-form {
+.grid-block, .main, .meeting, .question, .question-form {
   background: #fff;
   border-radius: 3px;
   padding: 10px;
@@ -47,11 +47,6 @@ body {
     -moz-transition: none;
     -o-transition: none;
     transition: none; }
-  .meeting.animate{
-    -webkit-transition: all 300ms 0ms;
-    -moz-transition: all 300ms 0ms ease-in;
-    -o-transition: all 300ms 0ms ease-in;
-    transition: all 300ms 0ms ease-in; }
   .meeting .upvote {
     display: block;
     margin: 7px 12px 0 0;
@@ -77,19 +72,24 @@ body {
     float: right;
     margin-top: 7px; }
 
-.questions {
+.question {
   list-style-type: none;
-  margin: 0; }
-  .questions li h4 {
+  position:relative;
+  }
+  .question h4 {
     font-size: 16px;
     margin: 0; }
-    .questions li h4 .date {
+    .question h4 .date {
       font-size: 12px;
       font-weight: normal; }
-    .questions li h4 a {
+    .question h4 a {
       font-size: 12px; }
-  .questions li p:last-child {
+  .question p:last-child {
     margin-bottom: 0; }
+
+    .question.animate{
+          transition:all 300ms 0ms ease-in;
+    }
 
 .dropdown-menu span {
   display: block;

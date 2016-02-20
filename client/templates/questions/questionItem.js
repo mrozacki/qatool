@@ -37,6 +37,26 @@ Template.questionItem.events({
     return Session.set("votedQuestions", votedIds);
   },
 
+  "click .btn-unvote": function(event){
+    event.preventDefault();
+    var votedIds = Session.get("votedQuestions");
+    Meteor.call('unvote', this._id, function(error, result) {
+      // display the error to the user and abort
+      if (error)
+       return  throwError(error.reason);
+    });
+    //votedIds.push(this._id);
+    
+    // remove from array votedIds the element with id equal to this._id 
+    for(var i = votedIds.length - 1; i >= 0; i--) {  
+      if(votedIds[i] === this._id) {
+         votedIds.splice(i, 1);
+      }
+    }
+    
+    return Session.set("votedQuestions", votedIds);
+  },
+
   "click .btn-answered": function(event){
     event.preventDefault();
     Meteor.call('answer', this._id, function(error, result) {

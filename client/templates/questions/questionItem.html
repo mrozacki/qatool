@@ -3,7 +3,9 @@
     <p>{{text}}</p>
     <p>{{votes}} Votes</p>
     {{#if notVoted}}
-      <button type="button" name="vote" class="btn btn-default btn-vote">Vote</button>
+      <button type="button" name="vote" class="btn btn-success btn-vote">Vote</button>
+    {{else}}
+      <button type="button" name="unvote" class="btn btn-warning btn-unvote">UnVote</button>
     {{/if}}
 
     {{#if owner}}
